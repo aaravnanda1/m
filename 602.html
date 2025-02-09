@@ -3,13 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MiraculousSpace</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap"
-      rel="stylesheet"
-    />
+    <title>S6E02</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <script
       data-cfasync="false"
       src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=971252"
@@ -18,6 +14,7 @@
       data-cfasync="false"
       src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=984237"
     ></script>
+    <h1>Miraculous Ladybug S6 Episodes On miraculousladybug.netlify.app!</h1>
     <script>
       s3ii[129303] = (function () {
         var j = 2;
@@ -5656,220 +5653,209 @@
 
     <style>
       body {
+        font-family: "Poppins", sans-serif;
+        background-color: #1a1a1a;
+        color: white;
         margin: 0;
-        font-family: "Montserrat", sans-serif;
-        background: #121212;
-        color: #ffffff;
-        overflow-x: hidden;
-        text-align: center;
-        padding: 30px 10px;
-      }
-      .logo img {
-        width: 200px;
-        margin-bottom: 20px;
-      }
-      .episodes-list {
-        max-width: 1400px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 20px;
-      }
-      .episode {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 15px;
-        overflow: hidden;
-        transition: transform 0.3s, box-shadow 0.3s;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
-        cursor: pointer;
-        position: relative;
-      }
-      .episode img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        transition: transform 0.3s;
-      }
-      .episode:hover {
-        transform: scale(1.05);
-        box-shadow: 0px 6px 20px rgba(255, 64, 129, 0.6);
-      }
-      .episode-title {
-        margin-top: 10px;
-        font-weight: bold;
-        font-size: 1.3em;
-      }
-      .episode-info {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          to right,
-          rgba(0, 0, 0, 0.9),
-          rgba(0, 0, 0, 0.4)
-        );
-        opacity: 0;
-        transition: opacity 0.5s ease, transform 0.5s ease;
-        transform: translateX(-100%);
-        color: #ffffff;
+        padding: 0;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding: 20px;
-        text-align: left;
-      }
-      .episode:hover .episode-info {
-        opacity: 1;
-        transform: translateX(0);
-      }
-      .play-episode-container {
-        display: flex;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.7);
-        padding: 10px;
-        border-radius: 15px;
-        margin-top: 15px;
-        width: fit-content;
-        justify-content: center;
-        transition: transform 0.3s ease;
-      }
-      .play-episode-container:hover {
-        transform: scale(1.05);
-      }
-      .play-icon {
-        background: #ffffff;
-        border-radius: 50%;
-        width: 45px;
-        height: 45px;
-        display: flex;
         align-items: center;
         justify-content: center;
-        margin-right: 15px;
-      }
-      .play-icon:before {
-        content: "\25B6";
-        font-size: 18px;
-        color: #ff4081;
-      }
-      .play-button-text {
-        color: #ffffff;
-        font-size: 1em;
-        font-weight: bold;
+        min-height: 100vh;
+        transition: background-color 0.3s, color 0.3s;
       }
 
-      /* Mobile Adjustments */
-      @media (max-width: 1024px) {
-        .episodes-list {
-          grid-template-columns: repeat(2, 1fr);
-        }
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+        max-width: 800px;
+        padding: 20px;
+        box-sizing: border-box;
       }
-      @media (max-width: 768px) {
-        .episodes-list {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .logo img {
-          width: 170px;
-        }
+
+      .header {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 20px;
       }
-      @media (max-width: 480px) {
-        .episodes-list {
-          grid-template-columns: 1fr;
-        }
-        body {
-          padding: 20px 5px;
-        }
+
+      .header h1 {
+        font-size: 40px;
+        margin: 0;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .header h2 {
+        font-size: 20px;
+        margin: 0;
+        color: #f3f3f3;
+      }
+
+      .miraculous-logo {
+        width: 150px;
+        margin-bottom: 10px;
+      }
+
+      .download-button {
+        display: inline-block;
+        text-decoration: none;
+        margin-top: 10px;
+        padding: 15px 25px;
+        font-size: 18px;
+        background: linear-gradient(135deg, #ff4081, #ff79a9);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
+        box-shadow: 0 6px 12px rgba(255, 64, 129, 0.5);
+      }
+
+      .download-button:hover {
+        transform: scale(1.1);
+        background: linear-gradient(135deg, #ff79a9, #ff4081);
+      }
+
+      .player-container {
+        width: 100%;
+        max-width: 900px;
+        height: auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .player-container video {
+        width: 100%;
+        max-height: 500px;
+      }
+
+      .language-switcher {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+        padding: 10px;
+        background: #222;
+        border-radius: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .language-button {
+        padding: 12px 18px;
+        background: linear-gradient(135deg, #444, #222);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      .language-button:hover {
+        transform: translateY(-3px);
+        background: linear-gradient(135deg, #555, #333);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+      }
+
+      .language-button.active {
+        background: linear-gradient(135deg, #888, #666) !important;
+        color: white;
+        box-shadow: 0 6px 16px rgba(255, 255, 255, 0.5);
       }
     </style>
   </head>
   <body>
-    <div
-      class="logo"
-      onclick="window.location.href='https://miraculousladybug.netlify.app'"
-      style="cursor: pointer"
-    >
-      <img
-        src="https://i.ibb.co/KzKf3PDg/MIR-S6-LOGO-1.png"
-        alt="Miraculous Logo"
-      />
-    </div>
-    <div class="episodes-list">
-      <div class="episode" onclick="window.location.href='602.html'">
-        <img
-          src="https://i.ibb.co/vxCG8zvM/S06-E02-Endcard-1.png"
-          alt="The Illustrhater"
-        />
-        <p class="episode-title">The Illustrhater</p>
-        <div class="episode-info">
-          <p>TV-Y7 | 22 min | January 25, 2025</p>
-          <p>
-            While Marinette struggles with her controlling instinct, Ladybug and
-            her team face a villain full of imagination.
-          </p>
-          <div class="play-episode-container">
-            <div class="play-icon"></div>
-            <span>Play Episode</span>
-          </div>
-        </div>
+    <div class="content">
+      <div class="header">
+        <a href="https://miraculousladybug.netlify.app">
+          <img
+            src="https://miraculous.space/logo.png"
+            alt="Miraculous Logo"
+            class="miraculous-logo"
+          />
+        </a>
+        <h2>S6E02</h2>
+        <h1>THE ILLUSTRHATER</h1>
+        <a
+          class="download-button"
+          href="https://app.videas.fr/download/files/7eed2263-0eaa-4057-a24d-d867a33b2ecf/miraculous-tales-of-ladybug-and-cat-noir-s6e03-1080p-webdl-ddp5-mp4-source.mp4"
+          download
+          >📥 Download</a
+        >
       </div>
-      <div class="episode" onclick="window.location.href='603.html'">
-        <img
-          src="https://i.ibb.co/cXQQJx6G/vlcsnap-2025-02-06-19h42m08s404.png"
-          alt="Sublimation"
-        />
-        <p class="episode-title">Sublimation</p>
-        <div class="episode-info">
-          <p>TV-Y7 | 22 min | February 6, 2025</p>
-          <p>
-            Adrien makes a new friend whom Marinette is determined to befriend
-            too, but she has no clue how to become friends with someone who
-            doesn't need help.
-          </p>
-          <div class="play-episode-container">
-            <div class="play-icon"></div>
-            <span>Play Episode</span>
-          </div>
-        </div>
+
+      <div class="player-container">
+        <video
+          id="videoPlayer"
+          class="plyr"
+          playsinline
+          controls
+          poster="https://i.ibb.co/vxCG8zvM/S06-E02-Endcard-1.png"
+        ></video>
       </div>
-      <div class="episode" onclick="window.location.href='604.html'">
-        <img
-          src="https://i.ibb.co/S4YcyknJ/5269647400581066136.jpg"
-          alt="Daddycop"
-        />
-        <p class="episode-title">Daddycop</p>
-        <div class="episode-info">
-          <p>TV-Y7 | 22 min | February 8, 2025</p>
-          <p>
-            Marinette plans a romantic evening for her 100th kiss with Adrien
-            but forgets she already scheduled a movie night with her friends!
-          </p>
-          <div class="play-episode-container">
-            <div class="play-icon"></div>
-            <span>Play Episode</span>
-          </div>
-        </div>
-      </div>
-      <div class="episode" onclick="window.location.href='605.html'">
-        <img
-          src="https://i.ibb.co/gZd4n2XF/4981175157641031409.jpg"
-          alt="Werepapas"
-        />
-        <p class="episode-title">Werepapas</p>
-        <div class="episode-info">
-          <p>TV-Y7 | 22 min | February 7, 2025</p>
-          <p>
-            Adrien nervously meets his grandparents for the first time, and
-            Marinette interrupts to support him, unaware of an impending family
-            feud.
-          </p>
-          <div class="play-episode-container">
-            <div class="play-icon"></div>
-            <span>Play Episode</span>
-          </div>
-        </div>
+
+      <div class="language-switcher">
+        <button
+          class="language-button active"
+          onclick="setLanguage('en', this)"
+        >
+          🇬🇧 ENGLISH
+        </button>
+        <button class="language-button" onclick="setLanguage('br', this)">
+          🇧🇷 BRAZILIAN
+        </button>
       </div>
     </div>
+
+    <script>
+      const video = document.getElementById("videoPlayer");
+      const hls = new Hls();
+      hls.loadSource(
+        "https://cdn.videas.fr/v-medias/s5/hlsv1/7b/6c/7b6c1641-26c6-480a-8ec1-a2376d16d76b/playlist.m3u8"
+      );
+      hls.attachMedia(video);
+
+      let brazilianAudio = new Audio(
+        "https://cdn.videas.fr/v-medias/uploads/add6b527-616c-4a68-be3a-3df917d63eb4"
+      );
+      brazilianAudio.loop = true;
+
+      function setLanguage(lang, button) {
+        document
+          .querySelectorAll(".language-button")
+          .forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+        if (lang === "en") {
+          video.muted = false;
+          brazilianAudio.pause();
+        } else {
+          video.muted = true;
+          brazilianAudio.play();
+          syncBrazilianAudio();
+        }
+      }
+
+      function syncBrazilianAudio() {
+        brazilianAudio.currentTime = video.currentTime;
+      }
+
+      video.addEventListener("seeked", syncBrazilianAudio);
+      video.addEventListener("pause", () => brazilianAudio.pause());
+      video.addEventListener("play", () => {
+        if (video.muted) brazilianAudio.play();
+      });
+    </script>
   </body>
 </html>
